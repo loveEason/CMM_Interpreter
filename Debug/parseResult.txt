@@ -1,0 +1,1819 @@
+第1步
+当前分析栈:# <程序> 
+剩余输入串:int ID ( int ID ) { int ID = INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<程序> -> <函数定义或声明> <程序>
+
+第2步
+当前分析栈:# <程序> <函数定义或声明> 
+剩余输入串:int ID ( int ID ) { int ID = INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<函数定义或声明> -> <类型> <变量> ( <参数声明> ) <函数定义或声明闭包>
+
+第3步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <参数声明> ( <变量> <类型> 
+剩余输入串:int ID ( int ID ) { int ID = INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<类型> -> int
+
+第4步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <参数声明> ( <变量> int 
+剩余输入串:int ID ( int ID ) { int ID = INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:int
+
+第5步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <参数声明> ( <变量> 
+剩余输入串:ID ( int ID ) { int ID = INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<变量> -> <标识符> <数组下标>
+
+第6步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <参数声明> ( <数组下标> <标识符> 
+剩余输入串:ID ( int ID ) { int ID = INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<标识符> -> ID
+
+第7步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <参数声明> ( <数组下标> ID 
+剩余输入串:ID ( int ID ) { int ID = INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:ID
+
+第8步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <参数声明> ( <数组下标> 
+剩余输入串:( int ID ) { int ID = INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数组下标> -> $
+
+第9步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <参数声明> ( 
+剩余输入串:( int ID ) { int ID = INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:(
+
+第10步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <参数声明> 
+剩余输入串:int ID ) { int ID = INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<参数声明> -> <声明> <声明闭包>
+
+第11步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <声明闭包> <声明> 
+剩余输入串:int ID ) { int ID = INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<声明> -> <类型> <变量> <赋初值>
+
+第12步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <声明闭包> <赋初值> <变量> <类型> 
+剩余输入串:int ID ) { int ID = INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<类型> -> int
+
+第13步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <声明闭包> <赋初值> <变量> int 
+剩余输入串:int ID ) { int ID = INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:int
+
+第14步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <声明闭包> <赋初值> <变量> 
+剩余输入串:ID ) { int ID = INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<变量> -> <标识符> <数组下标>
+
+第15步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <声明闭包> <赋初值> <数组下标> <标识符> 
+剩余输入串:ID ) { int ID = INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<标识符> -> ID
+
+第16步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <声明闭包> <赋初值> <数组下标> ID 
+剩余输入串:ID ) { int ID = INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:ID
+
+第17步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <声明闭包> <赋初值> <数组下标> 
+剩余输入串:) { int ID = INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数组下标> -> $
+
+第18步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <声明闭包> <赋初值> 
+剩余输入串:) { int ID = INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<赋初值> -> $
+
+第19步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <声明闭包> 
+剩余输入串:) { int ID = INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<声明闭包> -> $
+
+第20步
+当前分析栈:# <程序> <函数定义或声明闭包> ) 
+剩余输入串:) { int ID = INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:)
+
+第21步
+当前分析栈:# <程序> <函数定义或声明闭包> 
+剩余输入串:{ int ID = INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<函数定义或声明闭包> -> <复合函数块>
+
+第22步
+当前分析栈:# <程序> <复合函数块> 
+剩余输入串:{ int ID = INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<复合函数块> -> { <函数块> }
+
+第23步
+当前分析栈:# <程序> } <函数块> { 
+剩余输入串:{ int ID = INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:{
+
+第24步
+当前分析栈:# <程序> } <函数块> 
+剩余输入串:int ID = INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<函数块> -> <声明语句闭包> <函数块闭包>
+
+第25步
+当前分析栈:# <程序> } <函数块闭包> <声明语句闭包> 
+剩余输入串:int ID = INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<声明语句闭包> -> $
+
+第26步
+当前分析栈:# <程序> } <函数块闭包> 
+剩余输入串:int ID = INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<函数块闭包> -> <赋值函数> <函数块>
+
+第27步
+当前分析栈:# <程序> } <函数块> <赋值函数> 
+剩余输入串:int ID = INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<赋值函数> -> <类型> <变量> <赋值或函数调用>
+
+第28步
+当前分析栈:# <程序> } <函数块> <赋值或函数调用> <变量> <类型> 
+剩余输入串:int ID = INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<类型> -> int
+
+第29步
+当前分析栈:# <程序> } <函数块> <赋值或函数调用> <变量> int 
+剩余输入串:int ID = INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:int
+
+第30步
+当前分析栈:# <程序> } <函数块> <赋值或函数调用> <变量> 
+剩余输入串:ID = INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<变量> -> <标识符> <数组下标>
+
+第31步
+当前分析栈:# <程序> } <函数块> <赋值或函数调用> <数组下标> <标识符> 
+剩余输入串:ID = INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<标识符> -> ID
+
+第32步
+当前分析栈:# <程序> } <函数块> <赋值或函数调用> <数组下标> ID 
+剩余输入串:ID = INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:ID
+
+第33步
+当前分析栈:# <程序> } <函数块> <赋值或函数调用> <数组下标> 
+剩余输入串:= INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数组下标> -> $
+
+第34步
+当前分析栈:# <程序> } <函数块> <赋值或函数调用> 
+剩余输入串:= INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<赋值或函数调用> -> = <右值> ;
+
+第35步
+当前分析栈:# <程序> } <函数块> ; <右值> = 
+剩余输入串:= INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:=
+
+第36步
+当前分析栈:# <程序> } <函数块> ; <右值> 
+剩余输入串:INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<右值> -> <表达式>
+
+第37步
+当前分析栈:# <程序> } <函数块> ; <表达式> 
+剩余输入串:INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<表达式> -> <因子> <项>
+
+第38步
+当前分析栈:# <程序> } <函数块> ; <项> <因子> 
+剩余输入串:INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因子> -> <因式> <因式递归>
+
+第39步
+当前分析栈:# <程序> } <函数块> ; <项> <因式递归> <因式> 
+剩余输入串:INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因式> -> <数字>
+
+第40步
+当前分析栈:# <程序> } <函数块> ; <项> <因式递归> <数字> 
+剩余输入串:INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数字> -> INT_VALUE
+
+第41步
+当前分析栈:# <程序> } <函数块> ; <项> <因式递归> INT_VALUE 
+剩余输入串:INT_VALUE ; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:INT_VALUE
+
+第42步
+当前分析栈:# <程序> } <函数块> ; <项> <因式递归> 
+剩余输入串:; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因式递归> -> $
+
+第43步
+当前分析栈:# <程序> } <函数块> ; <项> 
+剩余输入串:; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<项> -> $
+
+第44步
+当前分析栈:# <程序> } <函数块> ; 
+剩余输入串:; int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:;
+
+第45步
+当前分析栈:# <程序> } <函数块> 
+剩余输入串:int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<函数块> -> <声明语句闭包> <函数块闭包>
+
+第46步
+当前分析栈:# <程序> } <函数块闭包> <声明语句闭包> 
+剩余输入串:int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<声明语句闭包> -> $
+
+第47步
+当前分析栈:# <程序> } <函数块闭包> 
+剩余输入串:int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<函数块闭包> -> <赋值函数> <函数块>
+
+第48步
+当前分析栈:# <程序> } <函数块> <赋值函数> 
+剩余输入串:int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<赋值函数> -> <类型> <变量> <赋值或函数调用>
+
+第49步
+当前分析栈:# <程序> } <函数块> <赋值或函数调用> <变量> <类型> 
+剩余输入串:int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<类型> -> int
+
+第50步
+当前分析栈:# <程序> } <函数块> <赋值或函数调用> <变量> int 
+剩余输入串:int ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:int
+
+第51步
+当前分析栈:# <程序> } <函数块> <赋值或函数调用> <变量> 
+剩余输入串:ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<变量> -> <标识符> <数组下标>
+
+第52步
+当前分析栈:# <程序> } <函数块> <赋值或函数调用> <数组下标> <标识符> 
+剩余输入串:ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<标识符> -> ID
+
+第53步
+当前分析栈:# <程序> } <函数块> <赋值或函数调用> <数组下标> ID 
+剩余输入串:ID = INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:ID
+
+第54步
+当前分析栈:# <程序> } <函数块> <赋值或函数调用> <数组下标> 
+剩余输入串:= INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数组下标> -> $
+
+第55步
+当前分析栈:# <程序> } <函数块> <赋值或函数调用> 
+剩余输入串:= INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<赋值或函数调用> -> = <右值> ;
+
+第56步
+当前分析栈:# <程序> } <函数块> ; <右值> = 
+剩余输入串:= INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:=
+
+第57步
+当前分析栈:# <程序> } <函数块> ; <右值> 
+剩余输入串:INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<右值> -> <表达式>
+
+第58步
+当前分析栈:# <程序> } <函数块> ; <表达式> 
+剩余输入串:INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<表达式> -> <因子> <项>
+
+第59步
+当前分析栈:# <程序> } <函数块> ; <项> <因子> 
+剩余输入串:INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因子> -> <因式> <因式递归>
+
+第60步
+当前分析栈:# <程序> } <函数块> ; <项> <因式递归> <因式> 
+剩余输入串:INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因式> -> <数字>
+
+第61步
+当前分析栈:# <程序> } <函数块> ; <项> <因式递归> <数字> 
+剩余输入串:INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数字> -> INT_VALUE
+
+第62步
+当前分析栈:# <程序> } <函数块> ; <项> <因式递归> INT_VALUE 
+剩余输入串:INT_VALUE ; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:INT_VALUE
+
+第63步
+当前分析栈:# <程序> } <函数块> ; <项> <因式递归> 
+剩余输入串:; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因式递归> -> $
+
+第64步
+当前分析栈:# <程序> } <函数块> ; <项> 
+剩余输入串:; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<项> -> $
+
+第65步
+当前分析栈:# <程序> } <函数块> ; 
+剩余输入串:; if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:;
+
+第66步
+当前分析栈:# <程序> } <函数块> 
+剩余输入串:if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<函数块> -> <声明语句闭包> <函数块闭包>
+
+第67步
+当前分析栈:# <程序> } <函数块闭包> <声明语句闭包> 
+剩余输入串:if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<声明语句闭包> -> $
+
+第68步
+当前分析栈:# <程序> } <函数块闭包> 
+剩余输入串:if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<函数块闭包> -> <条件语句> <函数块>
+
+第69步
+当前分析栈:# <程序> } <函数块> <条件语句> 
+剩余输入串:if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<条件语句> -> if <条件语句块>
+
+第70步
+当前分析栈:# <程序> } <函数块> <条件语句块> if 
+剩余输入串:if ( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:if
+
+第71步
+当前分析栈:# <程序> } <函数块> <条件语句块> 
+剩余输入串:( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<条件语句块> -> ( <逻辑表达式> ) <复合函数块> <否则语句>
+
+第72步
+当前分析栈:# <程序> } <函数块> <否则语句> <复合函数块> ) <逻辑表达式> ( 
+剩余输入串:( ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:(
+
+第73步
+当前分析栈:# <程序> } <函数块> <否则语句> <复合函数块> ) <逻辑表达式> 
+剩余输入串:ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<逻辑表达式> -> <表达式> <逻辑运算符> <表达式>
+
+第74步
+当前分析栈:# <程序> } <函数块> <否则语句> <复合函数块> ) <表达式> <逻辑运算符> <表达式> 
+剩余输入串:ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<表达式> -> <因子> <项>
+
+第75步
+当前分析栈:# <程序> } <函数块> <否则语句> <复合函数块> ) <表达式> <逻辑运算符> <项> <因子> 
+剩余输入串:ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因子> -> <因式> <因式递归>
+
+第76步
+当前分析栈:# <程序> } <函数块> <否则语句> <复合函数块> ) <表达式> <逻辑运算符> <项> <因式递归> <因式> 
+剩余输入串:ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因式> -> <变量>
+
+第77步
+当前分析栈:# <程序> } <函数块> <否则语句> <复合函数块> ) <表达式> <逻辑运算符> <项> <因式递归> <变量> 
+剩余输入串:ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<变量> -> <标识符> <数组下标>
+
+第78步
+当前分析栈:# <程序> } <函数块> <否则语句> <复合函数块> ) <表达式> <逻辑运算符> <项> <因式递归> <数组下标> <标识符> 
+剩余输入串:ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<标识符> -> ID
+
+第79步
+当前分析栈:# <程序> } <函数块> <否则语句> <复合函数块> ) <表达式> <逻辑运算符> <项> <因式递归> <数组下标> ID 
+剩余输入串:ID > INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:ID
+
+第80步
+当前分析栈:# <程序> } <函数块> <否则语句> <复合函数块> ) <表达式> <逻辑运算符> <项> <因式递归> <数组下标> 
+剩余输入串:> INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数组下标> -> $
+
+第81步
+当前分析栈:# <程序> } <函数块> <否则语句> <复合函数块> ) <表达式> <逻辑运算符> <项> <因式递归> 
+剩余输入串:> INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因式递归> -> $
+
+第82步
+当前分析栈:# <程序> } <函数块> <否则语句> <复合函数块> ) <表达式> <逻辑运算符> <项> 
+剩余输入串:> INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<项> -> $
+
+第83步
+当前分析栈:# <程序> } <函数块> <否则语句> <复合函数块> ) <表达式> <逻辑运算符> 
+剩余输入串:> INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<逻辑运算符> -> >
+
+第84步
+当前分析栈:# <程序> } <函数块> <否则语句> <复合函数块> ) <表达式> > 
+剩余输入串:> INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:>
+
+第85步
+当前分析栈:# <程序> } <函数块> <否则语句> <复合函数块> ) <表达式> 
+剩余输入串:INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<表达式> -> <因子> <项>
+
+第86步
+当前分析栈:# <程序> } <函数块> <否则语句> <复合函数块> ) <项> <因子> 
+剩余输入串:INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因子> -> <因式> <因式递归>
+
+第87步
+当前分析栈:# <程序> } <函数块> <否则语句> <复合函数块> ) <项> <因式递归> <因式> 
+剩余输入串:INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因式> -> <数字>
+
+第88步
+当前分析栈:# <程序> } <函数块> <否则语句> <复合函数块> ) <项> <因式递归> <数字> 
+剩余输入串:INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数字> -> INT_VALUE
+
+第89步
+当前分析栈:# <程序> } <函数块> <否则语句> <复合函数块> ) <项> <因式递归> INT_VALUE 
+剩余输入串:INT_VALUE ) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:INT_VALUE
+
+第90步
+当前分析栈:# <程序> } <函数块> <否则语句> <复合函数块> ) <项> <因式递归> 
+剩余输入串:) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因式递归> -> $
+
+第91步
+当前分析栈:# <程序> } <函数块> <否则语句> <复合函数块> ) <项> 
+剩余输入串:) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<项> -> $
+
+第92步
+当前分析栈:# <程序> } <函数块> <否则语句> <复合函数块> ) 
+剩余输入串:) { ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:)
+
+第93步
+当前分析栈:# <程序> } <函数块> <否则语句> <复合函数块> 
+剩余输入串:{ ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<复合函数块> -> { <函数块> }
+
+第94步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块> { 
+剩余输入串:{ ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:{
+
+第95步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块> 
+剩余输入串:ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<函数块> -> <声明语句闭包> <函数块闭包>
+
+第96步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块闭包> <声明语句闭包> 
+剩余输入串:ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<声明语句闭包> -> $
+
+第97步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块闭包> 
+剩余输入串:ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<函数块闭包> -> <赋值函数> <函数块>
+
+第98步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块> <赋值函数> 
+剩余输入串:ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<赋值函数> -> <变量> <赋值或函数调用>
+
+第99步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块> <赋值或函数调用> <变量> 
+剩余输入串:ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<变量> -> <标识符> <数组下标>
+
+第100步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块> <赋值或函数调用> <数组下标> <标识符> 
+剩余输入串:ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<标识符> -> ID
+
+第101步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块> <赋值或函数调用> <数组下标> ID 
+剩余输入串:ID += ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:ID
+
+第102步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块> <赋值或函数调用> <数组下标> 
+剩余输入串:+= ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数组下标> -> $
+
+第103步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块> <赋值或函数调用> 
+剩余输入串:+= ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<赋值或函数调用> -> += <右值> ;
+
+第104步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块> ; <右值> += 
+剩余输入串:+= ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:+=
+
+第105步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块> ; <右值> 
+剩余输入串:ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<右值> -> <表达式>
+
+第106步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块> ; <表达式> 
+剩余输入串:ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<表达式> -> <因子> <项>
+
+第107步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块> ; <项> <因子> 
+剩余输入串:ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因子> -> <因式> <因式递归>
+
+第108步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块> ; <项> <因式递归> <因式> 
+剩余输入串:ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因式> -> <变量>
+
+第109步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块> ; <项> <因式递归> <变量> 
+剩余输入串:ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<变量> -> <标识符> <数组下标>
+
+第110步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块> ; <项> <因式递归> <数组下标> <标识符> 
+剩余输入串:ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<标识符> -> ID
+
+第111步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块> ; <项> <因式递归> <数组下标> ID 
+剩余输入串:ID ; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:ID
+
+第112步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块> ; <项> <因式递归> <数组下标> 
+剩余输入串:; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数组下标> -> $
+
+第113步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块> ; <项> <因式递归> 
+剩余输入串:; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因式递归> -> $
+
+第114步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块> ; <项> 
+剩余输入串:; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<项> -> $
+
+第115步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块> ; 
+剩余输入串:; ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:;
+
+第116步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块> 
+剩余输入串:ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<函数块> -> <声明语句闭包> <函数块闭包>
+
+第117步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块闭包> <声明语句闭包> 
+剩余输入串:ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<声明语句闭包> -> $
+
+第118步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块闭包> 
+剩余输入串:ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<函数块闭包> -> <赋值函数> <函数块>
+
+第119步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块> <赋值函数> 
+剩余输入串:ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<赋值函数> -> <变量> <赋值或函数调用>
+
+第120步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块> <赋值或函数调用> <变量> 
+剩余输入串:ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<变量> -> <标识符> <数组下标>
+
+第121步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块> <赋值或函数调用> <数组下标> <标识符> 
+剩余输入串:ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<标识符> -> ID
+
+第122步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块> <赋值或函数调用> <数组下标> ID 
+剩余输入串:ID -- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:ID
+
+第123步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块> <赋值或函数调用> <数组下标> 
+剩余输入串:-- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数组下标> -> $
+
+第124步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块> <赋值或函数调用> 
+剩余输入串:-- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<赋值或函数调用> -> <自增减运算符> ;
+
+第125步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块> ; <自增减运算符> 
+剩余输入串:-- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<自增减运算符> -> --
+
+第126步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块> ; -- 
+剩余输入串:-- ; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:--
+
+第127步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块> ; 
+剩余输入串:; } real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:;
+
+第128步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块> 
+剩余输入串:} real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<函数块> -> <声明语句闭包> <函数块闭包>
+
+第129步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块闭包> <声明语句闭包> 
+剩余输入串:} real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<声明语句闭包> -> $
+
+第130步
+当前分析栈:# <程序> } <函数块> <否则语句> } <函数块闭包> 
+剩余输入串:} real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<函数块闭包> -> $
+
+第131步
+当前分析栈:# <程序> } <函数块> <否则语句> } 
+剩余输入串:} real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:}
+
+第132步
+当前分析栈:# <程序> } <函数块> <否则语句> 
+剩余输入串:real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<否则语句> -> $
+
+第133步
+当前分析栈:# <程序> } <函数块> 
+剩余输入串:real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<函数块> -> <声明语句闭包> <函数块闭包>
+
+第134步
+当前分析栈:# <程序> } <函数块闭包> <声明语句闭包> 
+剩余输入串:real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<声明语句闭包> -> $
+
+第135步
+当前分析栈:# <程序> } <函数块闭包> 
+剩余输入串:real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<函数块闭包> -> <赋值函数> <函数块>
+
+第136步
+当前分析栈:# <程序> } <函数块> <赋值函数> 
+剩余输入串:real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<赋值函数> -> <类型> <变量> <赋值或函数调用>
+
+第137步
+当前分析栈:# <程序> } <函数块> <赋值或函数调用> <变量> <类型> 
+剩余输入串:real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<类型> -> real
+
+第138步
+当前分析栈:# <程序> } <函数块> <赋值或函数调用> <变量> real 
+剩余输入串:real ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:real
+
+第139步
+当前分析栈:# <程序> } <函数块> <赋值或函数调用> <变量> 
+剩余输入串:ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<变量> -> <标识符> <数组下标>
+
+第140步
+当前分析栈:# <程序> } <函数块> <赋值或函数调用> <数组下标> <标识符> 
+剩余输入串:ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<标识符> -> ID
+
+第141步
+当前分析栈:# <程序> } <函数块> <赋值或函数调用> <数组下标> ID 
+剩余输入串:ID = FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:ID
+
+第142步
+当前分析栈:# <程序> } <函数块> <赋值或函数调用> <数组下标> 
+剩余输入串:= FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数组下标> -> $
+
+第143步
+当前分析栈:# <程序> } <函数块> <赋值或函数调用> 
+剩余输入串:= FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<赋值或函数调用> -> = <右值> ;
+
+第144步
+当前分析栈:# <程序> } <函数块> ; <右值> = 
+剩余输入串:= FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:=
+
+第145步
+当前分析栈:# <程序> } <函数块> ; <右值> 
+剩余输入串:FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<右值> -> <表达式>
+
+第146步
+当前分析栈:# <程序> } <函数块> ; <表达式> 
+剩余输入串:FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<表达式> -> <因子> <项>
+
+第147步
+当前分析栈:# <程序> } <函数块> ; <项> <因子> 
+剩余输入串:FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因子> -> <因式> <因式递归>
+
+第148步
+当前分析栈:# <程序> } <函数块> ; <项> <因式递归> <因式> 
+剩余输入串:FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因式> -> <数字>
+
+第149步
+当前分析栈:# <程序> } <函数块> ; <项> <因式递归> <数字> 
+剩余输入串:FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数字> -> FLOAT_VALUE
+
+第150步
+当前分析栈:# <程序> } <函数块> ; <项> <因式递归> FLOAT_VALUE 
+剩余输入串:FLOAT_VALUE ; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:FLOAT_VALUE
+
+第151步
+当前分析栈:# <程序> } <函数块> ; <项> <因式递归> 
+剩余输入串:; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因式递归> -> $
+
+第152步
+当前分析栈:# <程序> } <函数块> ; <项> 
+剩余输入串:; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<项> -> $
+
+第153步
+当前分析栈:# <程序> } <函数块> ; 
+剩余输入串:; int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:;
+
+第154步
+当前分析栈:# <程序> } <函数块> 
+剩余输入串:int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<函数块> -> <声明语句闭包> <函数块闭包>
+
+第155步
+当前分析栈:# <程序> } <函数块闭包> <声明语句闭包> 
+剩余输入串:int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<声明语句闭包> -> $
+
+第156步
+当前分析栈:# <程序> } <函数块闭包> 
+剩余输入串:int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<函数块闭包> -> <赋值函数> <函数块>
+
+第157步
+当前分析栈:# <程序> } <函数块> <赋值函数> 
+剩余输入串:int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<赋值函数> -> <类型> <变量> <赋值或函数调用>
+
+第158步
+当前分析栈:# <程序> } <函数块> <赋值或函数调用> <变量> <类型> 
+剩余输入串:int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<类型> -> int
+
+第159步
+当前分析栈:# <程序> } <函数块> <赋值或函数调用> <变量> int 
+剩余输入串:int ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:int
+
+第160步
+当前分析栈:# <程序> } <函数块> <赋值或函数调用> <变量> 
+剩余输入串:ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<变量> -> <标识符> <数组下标>
+
+第161步
+当前分析栈:# <程序> } <函数块> <赋值或函数调用> <数组下标> <标识符> 
+剩余输入串:ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<标识符> -> ID
+
+第162步
+当前分析栈:# <程序> } <函数块> <赋值或函数调用> <数组下标> ID 
+剩余输入串:ID [ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:ID
+
+第163步
+当前分析栈:# <程序> } <函数块> <赋值或函数调用> <数组下标> 
+剩余输入串:[ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数组下标> -> [ <因式> ]
+
+第164步
+当前分析栈:# <程序> } <函数块> <赋值或函数调用> ] <因式> [ 
+剩余输入串:[ ] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:[
+
+第165步
+当前分析栈:# <程序> } <函数块> <赋值或函数调用> ] <因式> 
+剩余输入串:] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因式> -> $
+
+第166步
+当前分析栈:# <程序> } <函数块> <赋值或函数调用> ] 
+剩余输入串:] = { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:]
+
+第167步
+当前分析栈:# <程序> } <函数块> <赋值或函数调用> 
+剩余输入串:= { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<赋值或函数调用> -> = <右值> ;
+
+第168步
+当前分析栈:# <程序> } <函数块> ; <右值> = 
+剩余输入串:= { INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:=
+
+第169步
+当前分析栈:# <程序> } <函数块> ; <右值> 
+剩余输入串:{ INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<右值> -> { <多个数据> }
+
+第170步
+当前分析栈:# <程序> } <函数块> ; } <多个数据> { 
+剩余输入串:{ INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:{
+
+第171步
+当前分析栈:# <程序> } <函数块> ; } <多个数据> 
+剩余输入串:INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<多个数据> -> <数字> <数字闭包>
+
+第172步
+当前分析栈:# <程序> } <函数块> ; } <数字闭包> <数字> 
+剩余输入串:INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数字> -> INT_VALUE
+
+第173步
+当前分析栈:# <程序> } <函数块> ; } <数字闭包> INT_VALUE 
+剩余输入串:INT_VALUE , INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:INT_VALUE
+
+第174步
+当前分析栈:# <程序> } <函数块> ; } <数字闭包> 
+剩余输入串:, INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数字闭包> -> , <数字> <数字闭包>
+
+第175步
+当前分析栈:# <程序> } <函数块> ; } <数字闭包> <数字> , 
+剩余输入串:, INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:,
+
+第176步
+当前分析栈:# <程序> } <函数块> ; } <数字闭包> <数字> 
+剩余输入串:INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数字> -> INT_VALUE
+
+第177步
+当前分析栈:# <程序> } <函数块> ; } <数字闭包> INT_VALUE 
+剩余输入串:INT_VALUE , INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:INT_VALUE
+
+第178步
+当前分析栈:# <程序> } <函数块> ; } <数字闭包> 
+剩余输入串:, INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数字闭包> -> , <数字> <数字闭包>
+
+第179步
+当前分析栈:# <程序> } <函数块> ; } <数字闭包> <数字> , 
+剩余输入串:, INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:,
+
+第180步
+当前分析栈:# <程序> } <函数块> ; } <数字闭包> <数字> 
+剩余输入串:INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数字> -> INT_VALUE
+
+第181步
+当前分析栈:# <程序> } <函数块> ; } <数字闭包> INT_VALUE 
+剩余输入串:INT_VALUE , INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:INT_VALUE
+
+第182步
+当前分析栈:# <程序> } <函数块> ; } <数字闭包> 
+剩余输入串:, INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数字闭包> -> , <数字> <数字闭包>
+
+第183步
+当前分析栈:# <程序> } <函数块> ; } <数字闭包> <数字> , 
+剩余输入串:, INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:,
+
+第184步
+当前分析栈:# <程序> } <函数块> ; } <数字闭包> <数字> 
+剩余输入串:INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数字> -> INT_VALUE
+
+第185步
+当前分析栈:# <程序> } <函数块> ; } <数字闭包> INT_VALUE 
+剩余输入串:INT_VALUE } ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:INT_VALUE
+
+第186步
+当前分析栈:# <程序> } <函数块> ; } <数字闭包> 
+剩余输入串:} ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数字闭包> -> $
+
+第187步
+当前分析栈:# <程序> } <函数块> ; } 
+剩余输入串:} ; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:}
+
+第188步
+当前分析栈:# <程序> } <函数块> ; 
+剩余输入串:; for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:;
+
+第189步
+当前分析栈:# <程序> } <函数块> 
+剩余输入串:for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<函数块> -> <声明语句闭包> <函数块闭包>
+
+第190步
+当前分析栈:# <程序> } <函数块闭包> <声明语句闭包> 
+剩余输入串:for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<声明语句闭包> -> $
+
+第191步
+当前分析栈:# <程序> } <函数块闭包> 
+剩余输入串:for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<函数块闭包> -> <for循环> <函数块>
+
+第192步
+当前分析栈:# <程序> } <函数块> <for循环> 
+剩余输入串:for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<for循环> -> for <for循环块>
+
+第193步
+当前分析栈:# <程序> } <函数块> <for循环块> for 
+剩余输入串:for ( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:for
+
+第194步
+当前分析栈:# <程序> } <函数块> <for循环块> 
+剩余输入串:( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<for循环块> -> ( <赋值函数> <逻辑表达式> ; <一元表达式> ) <复合函数块>
+
+第195步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <逻辑表达式> <赋值函数> ( 
+剩余输入串:( int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:(
+
+第196步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <逻辑表达式> <赋值函数> 
+剩余输入串:int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<赋值函数> -> <类型> <变量> <赋值或函数调用>
+
+第197步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <逻辑表达式> <赋值或函数调用> <变量> <类型> 
+剩余输入串:int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<类型> -> int
+
+第198步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <逻辑表达式> <赋值或函数调用> <变量> int 
+剩余输入串:int ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:int
+
+第199步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <逻辑表达式> <赋值或函数调用> <变量> 
+剩余输入串:ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<变量> -> <标识符> <数组下标>
+
+第200步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <逻辑表达式> <赋值或函数调用> <数组下标> <标识符> 
+剩余输入串:ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<标识符> -> ID
+
+第201步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <逻辑表达式> <赋值或函数调用> <数组下标> ID 
+剩余输入串:ID = INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:ID
+
+第202步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <逻辑表达式> <赋值或函数调用> <数组下标> 
+剩余输入串:= INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数组下标> -> $
+
+第203步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <逻辑表达式> <赋值或函数调用> 
+剩余输入串:= INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<赋值或函数调用> -> = <右值> ;
+
+第204步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <逻辑表达式> ; <右值> = 
+剩余输入串:= INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:=
+
+第205步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <逻辑表达式> ; <右值> 
+剩余输入串:INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<右值> -> <表达式>
+
+第206步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <逻辑表达式> ; <表达式> 
+剩余输入串:INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<表达式> -> <因子> <项>
+
+第207步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <逻辑表达式> ; <项> <因子> 
+剩余输入串:INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因子> -> <因式> <因式递归>
+
+第208步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <逻辑表达式> ; <项> <因式递归> <因式> 
+剩余输入串:INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因式> -> <数字>
+
+第209步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <逻辑表达式> ; <项> <因式递归> <数字> 
+剩余输入串:INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数字> -> INT_VALUE
+
+第210步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <逻辑表达式> ; <项> <因式递归> INT_VALUE 
+剩余输入串:INT_VALUE ; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:INT_VALUE
+
+第211步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <逻辑表达式> ; <项> <因式递归> 
+剩余输入串:; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因式递归> -> $
+
+第212步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <逻辑表达式> ; <项> 
+剩余输入串:; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<项> -> $
+
+第213步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <逻辑表达式> ; 
+剩余输入串:; ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:;
+
+第214步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <逻辑表达式> 
+剩余输入串:ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<逻辑表达式> -> <表达式> <逻辑运算符> <表达式>
+
+第215步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <表达式> <逻辑运算符> <表达式> 
+剩余输入串:ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<表达式> -> <因子> <项>
+
+第216步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <表达式> <逻辑运算符> <项> <因子> 
+剩余输入串:ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因子> -> <因式> <因式递归>
+
+第217步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <表达式> <逻辑运算符> <项> <因式递归> <因式> 
+剩余输入串:ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因式> -> <变量>
+
+第218步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <表达式> <逻辑运算符> <项> <因式递归> <变量> 
+剩余输入串:ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<变量> -> <标识符> <数组下标>
+
+第219步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <表达式> <逻辑运算符> <项> <因式递归> <数组下标> <标识符> 
+剩余输入串:ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<标识符> -> ID
+
+第220步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <表达式> <逻辑运算符> <项> <因式递归> <数组下标> ID 
+剩余输入串:ID < INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:ID
+
+第221步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <表达式> <逻辑运算符> <项> <因式递归> <数组下标> 
+剩余输入串:< INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数组下标> -> $
+
+第222步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <表达式> <逻辑运算符> <项> <因式递归> 
+剩余输入串:< INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因式递归> -> $
+
+第223步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <表达式> <逻辑运算符> <项> 
+剩余输入串:< INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<项> -> $
+
+第224步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <表达式> <逻辑运算符> 
+剩余输入串:< INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<逻辑运算符> -> <
+
+第225步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <表达式> < 
+剩余输入串:< INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:<
+
+第226步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <表达式> 
+剩余输入串:INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<表达式> -> <因子> <项>
+
+第227步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <项> <因子> 
+剩余输入串:INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因子> -> <因式> <因式递归>
+
+第228步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <项> <因式递归> <因式> 
+剩余输入串:INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因式> -> <数字>
+
+第229步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <项> <因式递归> <数字> 
+剩余输入串:INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数字> -> INT_VALUE
+
+第230步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <项> <因式递归> INT_VALUE 
+剩余输入串:INT_VALUE ; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:INT_VALUE
+
+第231步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <项> <因式递归> 
+剩余输入串:; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因式递归> -> $
+
+第232步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; <项> 
+剩余输入串:; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<项> -> $
+
+第233步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> ; 
+剩余输入串:; ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:;
+
+第234步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <一元表达式> 
+剩余输入串:ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<一元表达式> -> <后缀表达式>
+
+第235步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <后缀表达式> 
+剩余输入串:ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<后缀表达式> -> <变量> <自增减运算符>
+
+第236步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <自增减运算符> <变量> 
+剩余输入串:ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<变量> -> <标识符> <数组下标>
+
+第237步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <自增减运算符> <数组下标> <标识符> 
+剩余输入串:ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<标识符> -> ID
+
+第238步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <自增减运算符> <数组下标> ID 
+剩余输入串:ID ++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:ID
+
+第239步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <自增减运算符> <数组下标> 
+剩余输入串:++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数组下标> -> $
+
+第240步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <自增减运算符> 
+剩余输入串:++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<自增减运算符> -> ++
+
+第241步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) ++ 
+剩余输入串:++ ) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:++
+
+第242步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) 
+剩余输入串:) { ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:)
+
+第243步
+当前分析栈:# <程序> } <函数块> <复合函数块> 
+剩余输入串:{ ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<复合函数块> -> { <函数块> }
+
+第244步
+当前分析栈:# <程序> } <函数块> } <函数块> { 
+剩余输入串:{ ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:{
+
+第245步
+当前分析栈:# <程序> } <函数块> } <函数块> 
+剩余输入串:ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<函数块> -> <声明语句闭包> <函数块闭包>
+
+第246步
+当前分析栈:# <程序> } <函数块> } <函数块闭包> <声明语句闭包> 
+剩余输入串:ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<声明语句闭包> -> $
+
+第247步
+当前分析栈:# <程序> } <函数块> } <函数块闭包> 
+剩余输入串:ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<函数块闭包> -> <赋值函数> <函数块>
+
+第248步
+当前分析栈:# <程序> } <函数块> } <函数块> <赋值函数> 
+剩余输入串:ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<赋值函数> -> <变量> <赋值或函数调用>
+
+第249步
+当前分析栈:# <程序> } <函数块> } <函数块> <赋值或函数调用> <变量> 
+剩余输入串:ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<变量> -> <标识符> <数组下标>
+
+第250步
+当前分析栈:# <程序> } <函数块> } <函数块> <赋值或函数调用> <数组下标> <标识符> 
+剩余输入串:ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<标识符> -> ID
+
+第251步
+当前分析栈:# <程序> } <函数块> } <函数块> <赋值或函数调用> <数组下标> ID 
+剩余输入串:ID += ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:ID
+
+第252步
+当前分析栈:# <程序> } <函数块> } <函数块> <赋值或函数调用> <数组下标> 
+剩余输入串:+= ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数组下标> -> $
+
+第253步
+当前分析栈:# <程序> } <函数块> } <函数块> <赋值或函数调用> 
+剩余输入串:+= ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<赋值或函数调用> -> += <右值> ;
+
+第254步
+当前分析栈:# <程序> } <函数块> } <函数块> ; <右值> += 
+剩余输入串:+= ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:+=
+
+第255步
+当前分析栈:# <程序> } <函数块> } <函数块> ; <右值> 
+剩余输入串:ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<右值> -> <表达式>
+
+第256步
+当前分析栈:# <程序> } <函数块> } <函数块> ; <表达式> 
+剩余输入串:ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<表达式> -> <因子> <项>
+
+第257步
+当前分析栈:# <程序> } <函数块> } <函数块> ; <项> <因子> 
+剩余输入串:ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因子> -> <因式> <因式递归>
+
+第258步
+当前分析栈:# <程序> } <函数块> } <函数块> ; <项> <因式递归> <因式> 
+剩余输入串:ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因式> -> <变量>
+
+第259步
+当前分析栈:# <程序> } <函数块> } <函数块> ; <项> <因式递归> <变量> 
+剩余输入串:ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<变量> -> <标识符> <数组下标>
+
+第260步
+当前分析栈:# <程序> } <函数块> } <函数块> ; <项> <因式递归> <数组下标> <标识符> 
+剩余输入串:ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<标识符> -> ID
+
+第261步
+当前分析栈:# <程序> } <函数块> } <函数块> ; <项> <因式递归> <数组下标> ID 
+剩余输入串:ID ; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:ID
+
+第262步
+当前分析栈:# <程序> } <函数块> } <函数块> ; <项> <因式递归> <数组下标> 
+剩余输入串:; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数组下标> -> $
+
+第263步
+当前分析栈:# <程序> } <函数块> } <函数块> ; <项> <因式递归> 
+剩余输入串:; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因式递归> -> $
+
+第264步
+当前分析栈:# <程序> } <函数块> } <函数块> ; <项> 
+剩余输入串:; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<项> -> $
+
+第265步
+当前分析栈:# <程序> } <函数块> } <函数块> ; 
+剩余输入串:; } while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:;
+
+第266步
+当前分析栈:# <程序> } <函数块> } <函数块> 
+剩余输入串:} while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<函数块> -> <声明语句闭包> <函数块闭包>
+
+第267步
+当前分析栈:# <程序> } <函数块> } <函数块闭包> <声明语句闭包> 
+剩余输入串:} while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<声明语句闭包> -> $
+
+第268步
+当前分析栈:# <程序> } <函数块> } <函数块闭包> 
+剩余输入串:} while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<函数块闭包> -> $
+
+第269步
+当前分析栈:# <程序> } <函数块> } 
+剩余输入串:} while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:}
+
+第270步
+当前分析栈:# <程序> } <函数块> 
+剩余输入串:while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<函数块> -> <声明语句闭包> <函数块闭包>
+
+第271步
+当前分析栈:# <程序> } <函数块闭包> <声明语句闭包> 
+剩余输入串:while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<声明语句闭包> -> $
+
+第272步
+当前分析栈:# <程序> } <函数块闭包> 
+剩余输入串:while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<函数块闭包> -> <while循环> <函数块>
+
+第273步
+当前分析栈:# <程序> } <函数块> <while循环> 
+剩余输入串:while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<while循环> -> while <while循环块>
+
+第274步
+当前分析栈:# <程序> } <函数块> <while循环块> while 
+剩余输入串:while ( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:while
+
+第275步
+当前分析栈:# <程序> } <函数块> <while循环块> 
+剩余输入串:( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<while循环块> -> ( <逻辑表达式> ) <复合函数块>
+
+第276步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <逻辑表达式> ( 
+剩余输入串:( ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:(
+
+第277步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <逻辑表达式> 
+剩余输入串:ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<逻辑表达式> -> <表达式> <逻辑运算符> <表达式>
+
+第278步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <表达式> <逻辑运算符> <表达式> 
+剩余输入串:ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<表达式> -> <因子> <项>
+
+第279步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <表达式> <逻辑运算符> <项> <因子> 
+剩余输入串:ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因子> -> <因式> <因式递归>
+
+第280步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <表达式> <逻辑运算符> <项> <因式递归> <因式> 
+剩余输入串:ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因式> -> <变量>
+
+第281步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <表达式> <逻辑运算符> <项> <因式递归> <变量> 
+剩余输入串:ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<变量> -> <标识符> <数组下标>
+
+第282步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <表达式> <逻辑运算符> <项> <因式递归> <数组下标> <标识符> 
+剩余输入串:ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<标识符> -> ID
+
+第283步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <表达式> <逻辑运算符> <项> <因式递归> <数组下标> ID 
+剩余输入串:ID > INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:ID
+
+第284步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <表达式> <逻辑运算符> <项> <因式递归> <数组下标> 
+剩余输入串:> INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数组下标> -> $
+
+第285步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <表达式> <逻辑运算符> <项> <因式递归> 
+剩余输入串:> INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因式递归> -> $
+
+第286步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <表达式> <逻辑运算符> <项> 
+剩余输入串:> INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<项> -> $
+
+第287步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <表达式> <逻辑运算符> 
+剩余输入串:> INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<逻辑运算符> -> >
+
+第288步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <表达式> > 
+剩余输入串:> INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:>
+
+第289步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <表达式> 
+剩余输入串:INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<表达式> -> <因子> <项>
+
+第290步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <项> <因子> 
+剩余输入串:INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因子> -> <因式> <因式递归>
+
+第291步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <项> <因式递归> <因式> 
+剩余输入串:INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因式> -> <数字>
+
+第292步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <项> <因式递归> <数字> 
+剩余输入串:INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数字> -> INT_VALUE
+
+第293步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <项> <因式递归> INT_VALUE 
+剩余输入串:INT_VALUE ) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:INT_VALUE
+
+第294步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <项> <因式递归> 
+剩余输入串:) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<因式递归> -> $
+
+第295步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) <项> 
+剩余输入串:) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<项> -> $
+
+第296步
+当前分析栈:# <程序> } <函数块> <复合函数块> ) 
+剩余输入串:) { ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:)
+
+第297步
+当前分析栈:# <程序> } <函数块> <复合函数块> 
+剩余输入串:{ ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<复合函数块> -> { <函数块> }
+
+第298步
+当前分析栈:# <程序> } <函数块> } <函数块> { 
+剩余输入串:{ ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:{
+
+第299步
+当前分析栈:# <程序> } <函数块> } <函数块> 
+剩余输入串:ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<函数块> -> <声明语句闭包> <函数块闭包>
+
+第300步
+当前分析栈:# <程序> } <函数块> } <函数块闭包> <声明语句闭包> 
+剩余输入串:ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<声明语句闭包> -> $
+
+第301步
+当前分析栈:# <程序> } <函数块> } <函数块闭包> 
+剩余输入串:ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<函数块闭包> -> <赋值函数> <函数块>
+
+第302步
+当前分析栈:# <程序> } <函数块> } <函数块> <赋值函数> 
+剩余输入串:ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<赋值函数> -> <变量> <赋值或函数调用>
+
+第303步
+当前分析栈:# <程序> } <函数块> } <函数块> <赋值或函数调用> <变量> 
+剩余输入串:ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<变量> -> <标识符> <数组下标>
+
+第304步
+当前分析栈:# <程序> } <函数块> } <函数块> <赋值或函数调用> <数组下标> <标识符> 
+剩余输入串:ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<标识符> -> ID
+
+第305步
+当前分析栈:# <程序> } <函数块> } <函数块> <赋值或函数调用> <数组下标> ID 
+剩余输入串:ID ( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:ID
+
+第306步
+当前分析栈:# <程序> } <函数块> } <函数块> <赋值或函数调用> <数组下标> 
+剩余输入串:( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数组下标> -> $
+
+第307步
+当前分析栈:# <程序> } <函数块> } <函数块> <赋值或函数调用> 
+剩余输入串:( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<赋值或函数调用> -> ( <参数列表> ) ;
+
+第308步
+当前分析栈:# <程序> } <函数块> } <函数块> ; ) <参数列表> ( 
+剩余输入串:( ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:(
+
+第309步
+当前分析栈:# <程序> } <函数块> } <函数块> ; ) <参数列表> 
+剩余输入串:ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<参数列表> -> <参数> <参数闭包>
+
+第310步
+当前分析栈:# <程序> } <函数块> } <函数块> ; ) <参数闭包> <参数> 
+剩余输入串:ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<参数> -> <标识符>
+
+第311步
+当前分析栈:# <程序> } <函数块> } <函数块> ; ) <参数闭包> <标识符> 
+剩余输入串:ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<标识符> -> ID
+
+第312步
+当前分析栈:# <程序> } <函数块> } <函数块> ; ) <参数闭包> ID 
+剩余输入串:ID ) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:ID
+
+第313步
+当前分析栈:# <程序> } <函数块> } <函数块> ; ) <参数闭包> 
+剩余输入串:) ; ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<参数闭包> -> $
+
+第314步
+当前分析栈:# <程序> } <函数块> } <函数块> ; ) 
+剩余输入串:) ; ID -- ; } } int ID ( int ID ) { } # 
+匹配:)
+
+第315步
+当前分析栈:# <程序> } <函数块> } <函数块> ; 
+剩余输入串:; ID -- ; } } int ID ( int ID ) { } # 
+匹配:;
+
+第316步
+当前分析栈:# <程序> } <函数块> } <函数块> 
+剩余输入串:ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<函数块> -> <声明语句闭包> <函数块闭包>
+
+第317步
+当前分析栈:# <程序> } <函数块> } <函数块闭包> <声明语句闭包> 
+剩余输入串:ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<声明语句闭包> -> $
+
+第318步
+当前分析栈:# <程序> } <函数块> } <函数块闭包> 
+剩余输入串:ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<函数块闭包> -> <赋值函数> <函数块>
+
+第319步
+当前分析栈:# <程序> } <函数块> } <函数块> <赋值函数> 
+剩余输入串:ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<赋值函数> -> <变量> <赋值或函数调用>
+
+第320步
+当前分析栈:# <程序> } <函数块> } <函数块> <赋值或函数调用> <变量> 
+剩余输入串:ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<变量> -> <标识符> <数组下标>
+
+第321步
+当前分析栈:# <程序> } <函数块> } <函数块> <赋值或函数调用> <数组下标> <标识符> 
+剩余输入串:ID -- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<标识符> -> ID
+
+第322步
+当前分析栈:# <程序> } <函数块> } <函数块> <赋值或函数调用> <数组下标> ID 
+剩余输入串:ID -- ; } } int ID ( int ID ) { } # 
+匹配:ID
+
+第323步
+当前分析栈:# <程序> } <函数块> } <函数块> <赋值或函数调用> <数组下标> 
+剩余输入串:-- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<数组下标> -> $
+
+第324步
+当前分析栈:# <程序> } <函数块> } <函数块> <赋值或函数调用> 
+剩余输入串:-- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<赋值或函数调用> -> <自增减运算符> ;
+
+第325步
+当前分析栈:# <程序> } <函数块> } <函数块> ; <自增减运算符> 
+剩余输入串:-- ; } } int ID ( int ID ) { } # 
+推导所用产生式:<自增减运算符> -> --
+
+第326步
+当前分析栈:# <程序> } <函数块> } <函数块> ; -- 
+剩余输入串:-- ; } } int ID ( int ID ) { } # 
+匹配:--
+
+第327步
+当前分析栈:# <程序> } <函数块> } <函数块> ; 
+剩余输入串:; } } int ID ( int ID ) { } # 
+匹配:;
+
+第328步
+当前分析栈:# <程序> } <函数块> } <函数块> 
+剩余输入串:} } int ID ( int ID ) { } # 
+推导所用产生式:<函数块> -> <声明语句闭包> <函数块闭包>
+
+第329步
+当前分析栈:# <程序> } <函数块> } <函数块闭包> <声明语句闭包> 
+剩余输入串:} } int ID ( int ID ) { } # 
+推导所用产生式:<声明语句闭包> -> $
+
+第330步
+当前分析栈:# <程序> } <函数块> } <函数块闭包> 
+剩余输入串:} } int ID ( int ID ) { } # 
+推导所用产生式:<函数块闭包> -> $
+
+第331步
+当前分析栈:# <程序> } <函数块> } 
+剩余输入串:} } int ID ( int ID ) { } # 
+匹配:}
+
+第332步
+当前分析栈:# <程序> } <函数块> 
+剩余输入串:} int ID ( int ID ) { } # 
+推导所用产生式:<函数块> -> <声明语句闭包> <函数块闭包>
+
+第333步
+当前分析栈:# <程序> } <函数块闭包> <声明语句闭包> 
+剩余输入串:} int ID ( int ID ) { } # 
+推导所用产生式:<声明语句闭包> -> $
+
+第334步
+当前分析栈:# <程序> } <函数块闭包> 
+剩余输入串:} int ID ( int ID ) { } # 
+推导所用产生式:<函数块闭包> -> $
+
+第335步
+当前分析栈:# <程序> } 
+剩余输入串:} int ID ( int ID ) { } # 
+匹配:}
+
+第336步
+当前分析栈:# <程序> 
+剩余输入串:int ID ( int ID ) { } # 
+推导所用产生式:<程序> -> <函数定义或声明> <程序>
+
+第337步
+当前分析栈:# <程序> <函数定义或声明> 
+剩余输入串:int ID ( int ID ) { } # 
+推导所用产生式:<函数定义或声明> -> <类型> <变量> ( <参数声明> ) <函数定义或声明闭包>
+
+第338步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <参数声明> ( <变量> <类型> 
+剩余输入串:int ID ( int ID ) { } # 
+推导所用产生式:<类型> -> int
+
+第339步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <参数声明> ( <变量> int 
+剩余输入串:int ID ( int ID ) { } # 
+匹配:int
+
+第340步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <参数声明> ( <变量> 
+剩余输入串:ID ( int ID ) { } # 
+推导所用产生式:<变量> -> <标识符> <数组下标>
+
+第341步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <参数声明> ( <数组下标> <标识符> 
+剩余输入串:ID ( int ID ) { } # 
+推导所用产生式:<标识符> -> ID
+
+第342步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <参数声明> ( <数组下标> ID 
+剩余输入串:ID ( int ID ) { } # 
+匹配:ID
+
+第343步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <参数声明> ( <数组下标> 
+剩余输入串:( int ID ) { } # 
+推导所用产生式:<数组下标> -> $
+
+第344步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <参数声明> ( 
+剩余输入串:( int ID ) { } # 
+匹配:(
+
+第345步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <参数声明> 
+剩余输入串:int ID ) { } # 
+推导所用产生式:<参数声明> -> <声明> <声明闭包>
+
+第346步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <声明闭包> <声明> 
+剩余输入串:int ID ) { } # 
+推导所用产生式:<声明> -> <类型> <变量> <赋初值>
+
+第347步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <声明闭包> <赋初值> <变量> <类型> 
+剩余输入串:int ID ) { } # 
+推导所用产生式:<类型> -> int
+
+第348步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <声明闭包> <赋初值> <变量> int 
+剩余输入串:int ID ) { } # 
+匹配:int
+
+第349步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <声明闭包> <赋初值> <变量> 
+剩余输入串:ID ) { } # 
+推导所用产生式:<变量> -> <标识符> <数组下标>
+
+第350步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <声明闭包> <赋初值> <数组下标> <标识符> 
+剩余输入串:ID ) { } # 
+推导所用产生式:<标识符> -> ID
+
+第351步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <声明闭包> <赋初值> <数组下标> ID 
+剩余输入串:ID ) { } # 
+匹配:ID
+
+第352步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <声明闭包> <赋初值> <数组下标> 
+剩余输入串:) { } # 
+推导所用产生式:<数组下标> -> $
+
+第353步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <声明闭包> <赋初值> 
+剩余输入串:) { } # 
+推导所用产生式:<赋初值> -> $
+
+第354步
+当前分析栈:# <程序> <函数定义或声明闭包> ) <声明闭包> 
+剩余输入串:) { } # 
+推导所用产生式:<声明闭包> -> $
+
+第355步
+当前分析栈:# <程序> <函数定义或声明闭包> ) 
+剩余输入串:) { } # 
+匹配:)
+
+第356步
+当前分析栈:# <程序> <函数定义或声明闭包> 
+剩余输入串:{ } # 
+推导所用产生式:<函数定义或声明闭包> -> <复合函数块>
+
+第357步
+当前分析栈:# <程序> <复合函数块> 
+剩余输入串:{ } # 
+推导所用产生式:<复合函数块> -> { <函数块> }
+
+第358步
+当前分析栈:# <程序> } <函数块> { 
+剩余输入串:{ } # 
+匹配:{
+
+第359步
+当前分析栈:# <程序> } <函数块> 
+剩余输入串:} # 
+推导所用产生式:<函数块> -> <声明语句闭包> <函数块闭包>
+
+第360步
+当前分析栈:# <程序> } <函数块闭包> <声明语句闭包> 
+剩余输入串:} # 
+推导所用产生式:<声明语句闭包> -> $
+
+第361步
+当前分析栈:# <程序> } <函数块闭包> 
+剩余输入串:} # 
+推导所用产生式:<函数块闭包> -> $
+
+第362步
+当前分析栈:# <程序> } 
+剩余输入串:} # 
+匹配:}
+
+第363步
+当前分析栈:# <程序> 
+剩余输入串:# 
+推导所用产生式:<程序> -> $
+
+第364步
+当前分析栈:# 
+剩余输入串:# 
+当前程序语法分析成功！

@@ -1,25 +1,28 @@
 #include <iosfwd>
 #include <iostream>
-#include <string>
 #include <fstream>
 #include "Global.h"
 #include "LexAnalysis.h"
 #include "Util.h"
+#include "Parse.h"
 
 using namespace std;
 
 
 int lineNo;          //源文件中行的序号
+ofstream parseTree_file; //语法树结果文件
 #define BUFLEN 256
 
 int main(int argc,char *argv[]) {
-    ifstream source_file;    //源文件
-    fstream lex_file;       //词法分析结果文件
     string suffix = ".cmm"; //后缀名
     int pos;                //字符串中后缀名出现的位置
     string source_name;  //源文件的文件名
     string lex_name;     //词法分析结果文件的文件名
 
+
+    initKeyMap();
+    initSpecialMap();
+    initNode();
 
     if (argc == 1) {    //不提供参数,默认为从控制台输入源程序
         lex_file.open("./console.lex",ios::out);
@@ -43,7 +46,7 @@ int main(int argc,char *argv[]) {
         source_file.open(source_name, ios::in);
         if (!source_file.is_open()) {
             cout << "找不到或者打不开文件 " << source_name << endl;
-            exit(1);
+            return 1;
         }
         lex_name.append(argv[1]);
         if (pos == string::npos) {
@@ -60,5 +63,33 @@ int main(int argc,char *argv[]) {
 
     source_file.close();
     lex_file.close();
+
+    if (hasError) {
+        cout<<"词法分析中有无法识别的token,请先修改:"<<endl;
+        errorNode *p = errorHead;
+        while (p->next != NULL) {
+            cout<<"位于程序第"<<p->next->line<<"行的"<<p->next->content<<endl;
+            p = p->next;
+        }
+    } else {    //词法分析正确,开始语法分析
+        parse_file.open("./parseResult.txt", ios::out);
+        set_file.open("./set.txt", ios::trunc);
+        string grammar_name = "./grammar.txt";
+        saveProduction(grammar_name);
+        buildFirstSet();
+        buildProductionFirstSet();
+        buildFollowSet();
+        buildSelectSet();
+        buildPredictionTable();
+        analyse();
+        parseTree_file.open("./tree.xml");
+        parseTree_file << "<?xml version=\"1.0\" encoding=\"utf-8\"?>" << endl;
+        saveTree(treeRoot, parseTree_file);
+        parseTree_file.close();
+        set_file.close();
+        parse_file.close();
+    }
+
+
     return 0;
 }

@@ -1,4 +1,4 @@
-int main(int argc,char *argv[])
+int main(int argc)
 {
     int i=5;
     int sum=0;  //这是单行注释
@@ -7,11 +7,21 @@ int main(int argc,char *argv[])
         i--;
     }
     real j=100.5;
-    real 50d;   //这会出错
+//    real k=50d;   //这会出错
     /*
     这是多行
     注释
     */
     int array[] = {1,2,3,4};
-    write(sum);
+    for(int i=0;i<10;i++) {
+        j += i;
+    }
+    while(j>0) {
+        test(j);
+        j--;
+    }
+}
+
+int test(int x) {
+
 }
