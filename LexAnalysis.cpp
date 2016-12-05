@@ -405,7 +405,7 @@ TokenType getToken(istream &source_file,ostream &lex_file,int flag) {
                 isSave = FALSE;
                 if (c == '*') {
                     stateType = INMULCOMMENT2;
-                } else if (c == '/') {  //linepos>=bufSize
+                } else if (c == '/') {
                     currentToken = MUL_NOTE;
                     stateType = DONE;
                 } else {

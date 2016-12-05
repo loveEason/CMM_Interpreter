@@ -294,6 +294,7 @@ string dealTerminalSymbols(string oldStr) {
     }
 }
 
+
 //处理文法中的符号,如果是由<>包围的，则去掉
 string dealNoneTerminalSymbols(string oldStr) {
     int pos1 = 0;
@@ -315,9 +316,8 @@ void saveTree(treeNode *pTree, ofstream &out) {
     int i ;
     if( pTree == NULL ) return ;
     /*当前节点为叶子节点*/
-    if( pTree->childNum == 0 && terminalSymbols.find(pTree->content) != terminalSymbols.end() )
-    {
-        if (pTree->content == "$") {    //空字不输出
+    if( pTree->childNum == 0 && terminalSymbols.find(pTree->content) != terminalSymbols.end() ) {
+        if (pTree->content == "$" || pTree->content=="(" || pTree->content==")") {    //空字和括号不输出
 
         } else {
             out << dealTerminalSymbols(pTree->content) << endl;

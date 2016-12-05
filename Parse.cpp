@@ -307,7 +307,116 @@ void showRemainToken(normalNode *pCurrent) {
 }
 
 
+////正式用预测分析表进行语法分析
+//void analyse() {
+//    //将#添加到normalNode链表的结尾
+//    normalNode *p = normalHead;
+//    normalNode *tmp = new normalNode();
+//    tmp->content = "#";
+//    tmp->type = -1;
+//    tmp->tokenStr = "#";
+//    tmp->addr = -1;
+//    tmp->line = -1;
+//    tmp->next = NULL;
+//    while (p->next != NULL) {
+//        p = p->next;
+//    }
+//    p->next = tmp;
+//
+//    int i,j,pos;
+//    list<string> usedProduction;
+//    list<string>::const_iterator ite;
+//    list<string> usedProductionRight;
+//    string analysisStkTop;
+//    normalNode *preTop = NULL;
+//    normalNode *remainTokenTop = NULL;
+//    treeNode *tmpTreeNode;
+//
+//    top = 0;
+//    //将#和开始字符依次进分析栈
+//    analysisStack->push("#");
+//    addToTree(new treeNode("#"));
+//    analysisStack->push(startToken);
+//    addToTree(new treeNode(startToken));
+//
+//
+//    treeRoot = treeStack[top-1];    //得到语法树的根,即开始符号
+//
+//    preTop = normalHead;                 //重新指向头结点（注意，头结点为空的）
+//    for (i=0;;i++) {                //边分析边将过程写入语法分析结果文件中
+//        parse_file<<"第"<<i+1<<"步"<<endl;
+//        parse_file<<"当前分析栈:";
+//        showAnalysisStack(analysisStack);
+//        parse_file<<"剩余输入串:";
+//        showRemainToken(preTop->next);
+//
+//        //取出分析栈的栈顶
+//        analysisStkTop = analysisStack->top();
+//        //取出剩余输入串的栈顶
+//        remainTokenTop = preTop->next;
+//
+//        //如果分析栈和输入串都只剩余#,说明分析成功
+//        if (analysisStkTop == "#" && remainTokenTop->tokenStr == "#") {
+//            parse_file<<"当前程序语法分析成功！"<<endl;
+//            break;
+//        } else if (noneTerminalSymbols.find(analysisStkTop) != noneTerminalSymbols.end()) {      //如果分析栈的栈顶是非终结符
+//            //如果剩余输入符号串的栈顶是终结符并且在预测分析表中有对应的产生式
+//            if (terminalSymbols.find(remainTokenTop->tokenStr) != terminalSymbols.end() &&
+//                predictionTable[analysisStkTop].find(remainTokenTop->tokenStr) != predictionTable[analysisStkTop].end()) {
+//                parse_file<<"推导所用产生式:"<<predictionTable[analysisStkTop][remainTokenTop->tokenStr]<<endl<<endl;
+//                //得到此时应使用的产生式
+//                usedProduction = strtok_plus(predictionTable[analysisStkTop][remainTokenTop->tokenStr], " -> ");
+//                //第二项为产生式右部
+//                ite = usedProduction.cbegin();
+//                ite++;
+//                //取出产生式右部中的每一项
+//                usedProductionRight = strtok_plus(*ite, " ");
+//                list<string> proTmp = usedProductionRight;
+//                //初始化语法树节点
+//                tmpTreeNode = getTopNode();
+//                tmpTreeNode->childNum = proTmp.size();
+//
+//                //分析栈进行弹栈,再把产生式每一项倒序进栈
+//                analysisStack->pop();
+//                j = proTmp.size()-1;
+//                string tokenString;
+//                for (ite = proTmp.cend();ite != proTmp.cbegin();) {
+//                    tokenString = *(--ite);
+//                    tmpTreeNode->children[j] = new treeNode(tokenString);   //保存当前节点的子节点
+//                    if (terminalSymbols.find(tokenString) == terminalSymbols.end()) {   //如果不是终结符，则存入treeStack中
+//                        addToTree(tmpTreeNode->children[j]);
+//                    }
+//                    if (tokenString != "$") {               //空字不入栈
+//                        analysisStack->push(tokenString);
+//                    }
+//                    j--;
+//                }
+//            } else if (terminalSymbols.find(remainTokenTop->tokenStr) == terminalSymbols.end()) {
+//                //当前输入串栈顶不是终结符
+//                parse_file<<"错误！位于程序第"<<remainTokenTop->line<<"行的token:"<<remainTokenTop->tokenStr<<"不是终结符"<<endl<<endl;
+//                break;
+//            } else {
+//                //在预测分析表中找不到相关产生式
+//                parse_file<<"错误！当前token不可被识别:"<<"位于程序第"<<remainTokenTop->line<<"行的"<<remainTokenTop->tokenStr<<endl<<endl;
+//                break;
+//            }
+//        } else if (terminalSymbols.find(analysisStkTop) != terminalSymbols.end()) {            //如果分析栈的栈顶是终结符
+//            if (analysisStkTop == remainTokenTop->tokenStr) {
+//                //匹配
+//                //分析栈弹出
+//                analysisStack->pop();
+//                //让p指向剩余输入串下一个token,以使下次取出新栈顶
+//                preTop = remainTokenTop;
+//                parse_file<<"匹配:"<<remainTokenTop->tokenStr<<endl<<endl;
+//            } else {
+//                parse_file<<"错误！匹配失败:"<<"位于程序第"<<remainTokenTop->line<<"行的"<<remainTokenTop->tokenStr<<endl<<endl;
+//            }
+//        }
+//    }
+//}
+
 //正式用预测分析表进行语法分析
+//注：改进版，将每一个token的细节信息也加入到树节点中，也就是终结符节点中。
 void analyse() {
     //将#添加到normalNode链表的结尾
     normalNode *p = normalHead;
@@ -327,20 +436,22 @@ void analyse() {
     list<string> usedProduction;
     list<string>::const_iterator ite;
     list<string> usedProductionRight;
-    string analysisStkTop;
+    treeNode * analysisStkTop = NULL;
     normalNode *preTop = NULL;
     normalNode *remainTokenTop = NULL;
     treeNode *tmpTreeNode;
 
     top = 0;
     //将#和开始字符依次进分析栈
-    analysisStack->push("#");
-    addToTree(new treeNode("#"));
-    analysisStack->push(startToken);
-    addToTree(new treeNode(startToken));
+    treeNode *node = new treeNode("#");
+    analysisStack->push(node);
+    addToTree(node);
+    node = new treeNode(startToken);
+    analysisStack->push(node);
+    addToTree(node);
 
 
-    treeRoot = treeStack[top-1];    //得到语法树的根
+    treeRoot = treeStack[top-1];    //得到语法树的根,即开始符号
 
     preTop = normalHead;                 //重新指向头结点（注意，头结点为空的）
     for (i=0;;i++) {                //边分析边将过程写入语法分析结果文件中
@@ -356,30 +467,21 @@ void analyse() {
         remainTokenTop = preTop->next;
 
         //如果分析栈和输入串都只剩余#,说明分析成功
-        if (analysisStkTop == "#" && remainTokenTop->tokenStr == "#") {
+        if (analysisStkTop->content == "#" && remainTokenTop->tokenStr == "#") {
             parse_file<<"当前程序语法分析成功！"<<endl;
             break;
-        } else if (noneTerminalSymbols.find(analysisStkTop) != noneTerminalSymbols.end()) {      //如果分析栈的栈顶是非终结符
+        } else if (noneTerminalSymbols.find(analysisStkTop->content) != noneTerminalSymbols.end()) {      //如果分析栈的栈顶是非终结符
             //如果剩余输入符号串的栈顶是终结符并且在预测分析表中有对应的产生式
             if (terminalSymbols.find(remainTokenTop->tokenStr) != terminalSymbols.end() &&
-                predictionTable[analysisStkTop].find(remainTokenTop->tokenStr) != predictionTable[analysisStkTop].end()) {
-                parse_file<<"推导所用产生式:"<<predictionTable[analysisStkTop][remainTokenTop->tokenStr]<<endl<<endl;
+                predictionTable[analysisStkTop->content].find(remainTokenTop->tokenStr) != predictionTable[analysisStkTop->content].end()) {
+                parse_file<<"推导所用产生式:"<<predictionTable[analysisStkTop->content][remainTokenTop->tokenStr]<<endl<<endl;
                 //得到此时应使用的产生式
-                usedProduction = strtok_plus(predictionTable[analysisStkTop][remainTokenTop->tokenStr], " -> ");
+                usedProduction = strtok_plus(predictionTable[analysisStkTop->content][remainTokenTop->tokenStr], " -> ");
                 //第二项为产生式右部
                 ite = usedProduction.cbegin();
                 ite++;
                 //取出产生式右部中的每一项
                 usedProductionRight = strtok_plus(*ite, " ");
-//                //去掉空字
-//                list<string> proTmp;
-//                for (ite = usedProductionRight.cbegin(); ite != usedProductionRight.cend(); ite++) {
-//                    if (*ite == "$") {
-//
-//                    }else {
-//                        proTmp.push_back(*ite);
-//                    }
-//                }
                 list<string> proTmp = usedProductionRight;
                 //初始化语法树节点
                 tmpTreeNode = getTopNode();
@@ -391,12 +493,12 @@ void analyse() {
                 string tokenString;
                 for (ite = proTmp.cend();ite != proTmp.cbegin();) {
                     tokenString = *(--ite);
-                    tmpTreeNode->children[j] = new treeNode(tokenString);
-                    if (terminalSymbols.find(tokenString) == terminalSymbols.end()) {
+                    tmpTreeNode->children[j] = new treeNode(tokenString);   //保存当前节点的子节点
+                    if (terminalSymbols.find(tokenString) == terminalSymbols.end()) {   //如果不是终结符，则存入treeStack中
                         addToTree(tmpTreeNode->children[j]);
                     }
                     if (tokenString != "$") {               //空字不入栈
-                        analysisStack->push(tokenString);
+                        analysisStack->push(tmpTreeNode->children[j]);
                     }
                     j--;
                 }
@@ -409,19 +511,20 @@ void analyse() {
                 parse_file<<"错误！当前token不可被识别:"<<"位于程序第"<<remainTokenTop->line<<"行的"<<remainTokenTop->tokenStr<<endl<<endl;
                 break;
             }
-        } else if (terminalSymbols.find(analysisStkTop) != terminalSymbols.end()) {            //如果分析栈的栈顶是终结符
-            if (analysisStkTop == remainTokenTop->tokenStr) {
-                //匹配
-                //分析栈弹出
+        } else if (terminalSymbols.find(analysisStkTop->content) != terminalSymbols.end()) {            //如果分析栈的栈顶是终结符
+            if (analysisStkTop->content == remainTokenTop->tokenStr) {
+                //匹配,将此终结符的相关信息通过栈中元素存入树中
+                //然后分析栈弹出
+                analysisStkTop->line = remainTokenTop->line;
+                analysisStkTop->type = remainTokenTop->type;
+                analysisStkTop->tokenStr = remainTokenTop->tokenStr;
                 analysisStack->pop();
                 //让p指向剩余输入串下一个token,以使下次取出新栈顶
                 preTop = remainTokenTop;
-                parse_file<<"匹配:"<<remainTokenTop->tokenStr<<endl<<endl;
+                parse_file << "匹配:" << remainTokenTop->tokenStr << endl << endl;
             } else {
                 parse_file<<"错误！匹配失败:"<<"位于程序第"<<remainTokenTop->line<<"行的"<<remainTokenTop->tokenStr<<endl<<endl;
             }
         }
     }
 }
-
-

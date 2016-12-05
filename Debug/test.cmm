@@ -1,5 +1,3 @@
-int main(int argc)
-{
     int i=5;
     int sum=0;  //这是单行注释
     if(i>0) {
@@ -20,8 +18,4 @@ int main(int argc)
         test(j);
         j--;
     }
-}
-
-int test(int x) {
-
-}
+    read(x);
